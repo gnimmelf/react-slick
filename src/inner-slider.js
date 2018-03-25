@@ -6,8 +6,8 @@ import initialState from './initial-state';
 import defaultProps from './default-props';
 import createReactClass from 'create-react-class';
 import classnames from 'classnames';
-import { getOnDemandLazySlides, extractObject, initializedState, getHeight, 
-  canGoNext, slideHandler, changeSlide, keyHandler, swipeStart, swipeMove, 
+import { getOnDemandLazySlides, extractObject, initializedState, getHeight,
+  canGoNext, slideHandler, changeSlide, keyHandler, swipeStart, swipeMove,
   swipeEnd, getPreClones, getPostClones } from './utils/innerSliderUtils'
 import { getTrackLeft, getTrackCSS } from './utils/innerSliderUtils'
 
@@ -467,17 +467,17 @@ export class InnerSlider extends React.Component {
       listProps = { className: 'slick-list' }
       innerSliderProps = { className }
     }
-    
+
     return (
       <div {...innerSliderProps} >
         { !this.props.unslick ? prevArrow : '' }
+        { !this.props.unslick ? dots : '' }
+        { !this.props.unslick ? nextArrow: '' }
         <div ref={this.listRefHandler} {...listProps} >
           <Track ref={this.trackRefHandler} {...trackProps}>
             {this.props.children}
           </Track>
         </div>
-        { !this.props.unslick ? nextArrow: '' }
-        { !this.props.unslick ? dots : '' }
       </div>
     );
   }
